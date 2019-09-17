@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'portal';
+
+  showSideBar : boolean = false;
+
+  onShowSideBar() {
+    this.showSideBar =  true;
+  }
+
+  closeSideBar() {
+    this.showSideBar = false;
+  }
 }
+
+

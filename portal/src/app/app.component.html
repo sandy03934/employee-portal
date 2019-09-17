@@ -1,3 +1,9 @@
+<div class="wrapper">
 
-
-<router-outlet></router-outlet>
+    <app-global-sidenav [showSidebar]="showSideBar" (onCloseSidebar)="closeSideBar()"></app-global-sidenav>
+    <div id="content">
+        <app-global-header (onShowSideBar)="onShowSideBar()"></app-global-header>
+        <router-outlet></router-outlet>
+    </div>
+    <div [ngClass]="showSideBar ? 'overlay active' : 'overlay'"></div>
+</div>
