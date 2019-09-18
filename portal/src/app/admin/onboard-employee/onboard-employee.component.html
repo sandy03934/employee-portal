@@ -1,8 +1,13 @@
 <div class="row align-items-center justify-content-center">
-    <div class="col-md-6">
-        <div class="card w-300">
-            <form [formGroup]="employeeForm">
-                <div class="card-header">Enter Employee Details</div>
+    <div class="col-md-8"> 
+        <div class="card">
+            <form #newEmpForm [formGroup]="employeeForm" (ngSubmit)="onRegisterEmployee(newEmpForm)">
+                <div class="card-header">
+                    New Employee Details
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="onClose()"> 
+                            <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <div class="card-body">
                     <div class="form-group">
                         <label for="firstName">
@@ -42,7 +47,7 @@
                         </div>
                 </div>
                 <div class="card-footer text-right">
-                    <button type="submit" class="btn btn-primary" (submit)="onRegisterEmployee()">Onboard</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>

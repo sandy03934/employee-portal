@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Employee } from '../model/employee';
@@ -10,6 +10,10 @@ import { EmployeeService } from '../services/employee.service';
   styleUrls: ['./onboard-employee.component.css']
 })
 export class OnboardEmployeeComponent implements OnInit {
+
+  @Output() close : EventEmitter<any> = new EventEmitter<any>();
+
+  @Output() onEmployeeAdd : EventEmitter<any> = new EventEmitter<any>();
 
   employeeForm : FormGroup;
 
@@ -31,7 +35,7 @@ export class OnboardEmployeeComponent implements OnInit {
     })
   }
 
-  onRegisterEmployee() : void {
+  onRegisterEmployee(newEmployeeForm : FormGroup) : void {
     if (this.employeeForm != null && this.employeeForm.valid) {
       let employee : Employee = new Employee();
 
@@ -42,9 +46,14 @@ export class OnboardEmployeeComponent implements OnInit {
       employee.gender = this.employeeForm.controls.gender.value;
 
       this.employeeService.registerEmployee(employee).subscribe(res => {
-        console.log(res);
+        newEmployeeForm.reset(newEmployeeForm.value);
+        this.onEmployeeAdd.emit();
       });
     }
+  }
+
+  onClose() {
+    this.close.emit();
   }
 
 }

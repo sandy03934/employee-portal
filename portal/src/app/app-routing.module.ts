@@ -5,7 +5,7 @@ import { ManageEmployeesComponent } from './admin/manage-employees/manage-employ
 
 
 const routes: Routes = [
-  {path : '', redirectTo : 'admin/onboard/employee', pathMatch:'full'},
+  {path : '', redirectTo : 'admin/list/employee', pathMatch:'full'},
   {path : 'admin/onboard/employee', component : OnboardEmployeeComponent},
   {path : 'admin/list/employee', component : ManageEmployeesComponent}
 ];

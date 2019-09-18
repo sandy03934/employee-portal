@@ -6,6 +6,7 @@ import { ManageEmployeesComponent } from './manage-employees/manage-employees.co
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule, DatepickerModule } from 'ngx-bootstrap/datepicker';
 import { HttpClientModule }    from '@angular/common/http';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 
@@ -17,7 +18,8 @@ import { HttpClientModule }    from '@angular/common/http';
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
     DatepickerModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgxDatatableModule
   ],
   exports : [
     OnboardEmployeeComponent,

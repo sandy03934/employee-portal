@@ -1,4 +1,4 @@
-package com.sandy03934.employeeportal.com.sandy03934.employeeportal.controller;
+package com.sandy03934.employeeportal.controller;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
